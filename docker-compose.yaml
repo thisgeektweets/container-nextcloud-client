@@ -1,0 +1,17 @@
+---
+version: "2"
+services:
+  nextcloud-client:
+    image: thisgeektweets/container-nextcloud-client:latest
+    container_name: nextcloud-client
+    environment:
+      - NC_URL=nextcloud.mydomain.com
+      - NC_USER=myuser
+      - NC_PASS=mypassword
+      - NC_INTERVAL=60
+      - NC_EXIT=FALSE
+      - USER_UID=1000
+      - USER_GID=1000
+    volumes:
+      - /my/local/path/:/media/nextcloud
+    restart: unless-stopped
